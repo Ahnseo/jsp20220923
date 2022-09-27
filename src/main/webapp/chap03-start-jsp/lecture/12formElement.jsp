@@ -25,7 +25,5 @@ String val = request.getParameter("coffee");
 %>
 coffee : <%= val %>
 
-
-<p></p>
 </body>
 </html>
