@@ -18,9 +18,9 @@
 		메인 컨텐츠
 	</div>
 
-	<jsp:include page="01sub.jsp">
 		<%-- <jsp:include tag 안에 작성 --%>	
 		<%--name=value 쌍의 파라미터가 request에 포함됨 --%>
+	<jsp:include page="01sub.jsp">
 		<jsp:param name="age" value="30" />
 	</jsp:include>
 
