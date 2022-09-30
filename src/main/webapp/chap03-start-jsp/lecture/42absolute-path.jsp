@@ -15,7 +15,7 @@
 	프로토콜://host:port /path ? queryString 로 구성됨
 	 --%>
 	 <h3>절대 경로 :  /로 시작, port번호 다음(port번호 없을수도있다.)</h3>
-	 <!-- <form action="/jsp20220923/chap03/lecture/42absolute-path.jsp"> -->
+	 <%-- <form action="/jsp20220923/chap03/lecture/42absolute-path.jsp"> --%>
 	 
 	 <form action="/jsp20220923/chap03/lecture/43absolute-path.jsp">
 	 <input type="text" name="age"> <br>
