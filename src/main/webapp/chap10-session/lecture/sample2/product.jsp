@@ -12,7 +12,7 @@
 <body>
 <div>
 	<h1>상품</h1>
-	<%-- 경로는 이 페이지로. --%> 
+	<%-- 경로는 "cart.jsp" --%> 
 	<form action="cart.jsp" methed="post"> 
 		<input type="text" name="product">
 		<input type="submit" value="전송"> 
