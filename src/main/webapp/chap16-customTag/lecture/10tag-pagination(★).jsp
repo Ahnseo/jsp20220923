@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>       
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
-<%@ taglib prefix="my" tagdir="/WEB-INF/tags/chap16" %> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+<%@ taglib prefix="my" tagdir="/WEB-INF/tags/chap16" %>
 <% request.setCharacterEncoding("utf-8"); %>    
 <!DOCTYPE html>
 <html>
@@ -14,23 +14,10 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
-<%--
-커스텀 캐그 만들기
-webapp/WEB-INF 안에 .tag파일만들기(새 파일->jsp.tag)
- 
-우리가 만든 태그를 명시해줘야한다.
-<%@ taglib tagdir="/WEB-INF/tags/chap16" %> 
-
-prefix="my" 라고 명명하겟음.
-
-<%@ taglib prefix="my" tagdir="/WEB-INF/tags/chap16" %> 
- --%>
- 
- <my:tag1></my:tag1>
- <hr>
- 
- <my:tag1/>
- 
+	<my:tag10 left="1"  right="5"/> <%-- 1~5 페이지 출력 --%>
+	<hr>
+	<my:tag10 left="11"  right="20" active="15"/> <%-- 11~20 페이지 출력 그리고 현재 페이지가 15가 되도록--%>
+	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 </html>
