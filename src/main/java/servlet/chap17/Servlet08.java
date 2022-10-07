@@ -1,0 +1,65 @@
+package servlet.chap17;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class Servlet08
+ */
+
+
+
+@WebServlet(value = "/Servlet08",
+		initParams= {
+				@WebInitParam(name="userName", value = "ahnseoj"),
+				@WebInitParam(name="pw", value = "q1w2e3")
+		})
+public class Servlet08 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
+	private String name;
+	private String pw;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Servlet08() {
+    	
+        super();
+        // TODO Auto-generated constructor stub
+    }
+//init메소드가 정말 처음 1번 실행하는지 알아보자, 콘솔창 확인하기
+//init메소드 재정의
+// 서블릿이 만들어지자마자 실행해야하는 코드들 작성. (초기설정)
+    
+    @Override
+    public void init() throws ServletException {
+    	System.out.println("첫 실행ㅡ 딱한번 실행하는 init메소드");
+    	this.name = getInitParameter("userName");
+    	this.pw = getInitParameter("pw");
+    	
+    	System.out.println(name);
+    	System.out.println(pw);
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("doGet메소드로 Servlet08.java 새로고침으로 여러번 호출중..");
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

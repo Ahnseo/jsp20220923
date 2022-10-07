@@ -8,26 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
-doGet/ doPost
-
-1.파라미터 꺼내기 (보통90% request.getParameter(); ) 
-2.파라미터 가공 (ex. 형변환 등등)
-3.일을 한다. (보통 db관련 일을 한다.)
-4.결과추가(attribute 추가)
-5.포워드 or 리다이랙트
-*/
-
-/**
- * Servlet implementation class Servlet01
+ * Servlet implementation class Servlet07
  */
-@WebServlet("/Servlet01")
-public class Servlet01 extends HttpServlet {
+//어노테이션 주석 처리 -> web.xml 로 url경로 설정 연습하기
+//@WebServlet("/Servlet07")
+public class Servlet07 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Servlet01() {
+    public Servlet07() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,7 +27,14 @@ public class Servlet01 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("첫번째 서블릿이 일함!!!");
+		System.out.println("일곱번째 서블릿 일함###");
+		String ip = getInitParameter("ip");
+		String pw = getInitParameter("pw");
+		String userName = getInitParameter("userName");
+		
+		System.out.println("ip 파리미터: " +ip);
+		System.out.println("pw 파리미터: " +pw);
+		System.out.println("userName 파라미터: "+userName);
 	}
 
 	/**

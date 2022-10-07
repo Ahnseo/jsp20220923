@@ -8,26 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
-doGet/ doPost
-
-1.파라미터 꺼내기 (보통90% request.getParameter(); ) 
-2.파라미터 가공 (ex. 형변환 등등)
-3.일을 한다. (보통 db관련 일을 한다.)
-4.결과추가(attribute 추가)
-5.포워드 or 리다이랙트
-*/
-
-/**
- * Servlet implementation class Servlet01
+ * Servlet implementation class Servelt09
  */
-@WebServlet("/Servlet01")
-public class Servlet01 extends HttpServlet {
+@WebServlet("/Servelt09")
+public class Servlet09 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Servlet01() {
+    public Servlet09() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,15 +26,19 @@ public class Servlet01 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("첫번째 서블릿이 일함!!!");
+		String path ="/WEB-INF/view/chap17/view09.jsp";
+		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		System.out.println("post방식으로 요청와서 doPost메소드 실행됨");
+		String name = request.getParameter("name");
+		String address = request.getParameter("address");
+		System.out.println("이름: " + name);
+		System.out.println("주소: " + address);
 	}
 
 }
