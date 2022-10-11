@@ -16,7 +16,7 @@ import jsp20220923.chap07.Book;
 /**
  * Servlet implementation class Servlet10
  */
-@WebServlet("/Servlet10")
+@WebServlet(value = {"/Servlet10","/filter/servlet10"})
 public class Servlet10 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -63,7 +63,7 @@ public class Servlet10 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//이후 filter 를 사용할 예정임. 지금은 급히 encoding
-		request.setCharacterEncoding("utf-8");
+//		request.setCharacterEncoding("utf-8"); web.xml 파일로 필터적용중 이니까. 주석처리
 		
 		// 1. 일하고
 		
