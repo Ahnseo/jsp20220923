@@ -9,4 +9,4 @@ SELECT CustomerID, CustomerName FROM Customers WHERE CustomerID >= 81;
 SELECT * FROM Employees WHERE LastName >= 'c';
 
 -- 주문일자가 1998년 이후 인 주문들
-SELECT  *FROM Orders WHERE OrderDate > '1997-12-31'; 
+SELECT  * FROM Orders WHERE OrderDate > '1997-12-31'; 
