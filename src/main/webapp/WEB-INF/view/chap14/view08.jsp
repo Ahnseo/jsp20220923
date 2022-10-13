@@ -12,44 +12,47 @@
 	rel="stylesheet"
 	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 	crossorigin="anonymous">
+
+<style type="text/css">
+.margin20 {
+	margin: 20px;
+}
+</style>
 </head>
+
 <body>
-	<%-- Employee 클래스의 자바빈 사용 ,
-	getFirstName()-> 자바빈firstName, 
-	getLastName()-> 자바빈lastName  --%>
+	<h1 class="margin20">특정 id 고객 정보 조회</h1>
+	<div>
+		<form action="" method="get">
+			<input type="text" name="id" value="" class="margin20"> <input
+				type="submit" value="고객정보조회">
+		</form>
 
-	<h1>직원명 리스트</h1>
-	
-	<form action="" method="get">
-		Name: <input type="text" name="q" > 
-		<input type="submit" value="직원 조회하기">
-	</form>
-	
-	<c:if test="${ empty employeeList }">
-		<h3>이름을 조회하세요.</h3>
-	</c:if>
-
-	<c:if test="${ !empty employeeList }">
+	</div>
+	<div>
 		<table class="table">
 			<thead>
 				<tr>
-					
-					<th>lastName</th>
-					<th>firstName</th>
+					<th>Id</th>
+					<th>이름</th>
+					<th>주소</th>
+					<th>나라</th>
+					<th>도시</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${employeeList }" var="employee">
+				<c:forEach items="${customerList }" var="customer">
 					<tr>
-						<td>${employee.lastName }</td>
-						<td>${employee.firstName }</td>
+						<td>${customer.customerId }</td>
+						<td>${customer.customerName }</td>
+						<td>${customer.address }</td>
+						<td>${customer.country }</td>
+						<td>${customer.city }</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-	</c:if>
-
-
+	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
