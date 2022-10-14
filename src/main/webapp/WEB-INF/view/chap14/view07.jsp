@@ -15,15 +15,31 @@
 </head>
 <body>
 	<h1>고객 정보 조회</h1>
-	<a href="${pageContext.request.contextPath }/Servlet28_insert_input_post">돌아가기</a>
-	
-	<form action="" method="get">
+	<a href="${pageContext.request.contextPath }/Servlet28_insert_input_post">돌아가기/Servlet28</a>
+	<br>
+	<a href="${pageContext.request.contextPath }/Servlet30_update">고객정보 업데이트/Servlet30_update</a>
+	<br>
+	<a href="${pageContext.request.contextPath }/Servlet32_delete">고객정보 삭제하기/Servlet32_delete</a>
+
+	<c:if test="${ not empty sessionScope.message }">
+		<div class="alert alert-danger" role="alert">
+			${sessionScope.message }
+			
+		</div>
+	</c:if>
+	<c:remove var="message" scope="session" />
+	<%-- <form action="${ pageContext.request.contextPath}/Servlet23" method="get">
+		클라이언트가 사용하는 경로 이므로 이렇게 설정했지만, 경로설정은 사용할수도있고, 사용하지않을수도 있다.
+		지금은 같은 파일을 사용하므로, 빈칸으로 두어도 작동한다.  
+		--%>
+	<form action="${pageContext.request.contextPath }/Servlet23" method="get"> 
 		검색 : <input type="text" name="keyword" value="${param.keyword }" placeholder="이름 검색" >
-		<input type="submit" value="검색하기">
+		<input type="submit" value="직원이름 검색하기">
 	</form>
 
 	<hr>
 	
+	<%-- 기본 전체 조회 또는 검색한 결과를 전체조회  --%>
 	<table class="table">
 		<thead> 
 			<tr>
@@ -38,7 +54,15 @@
 			<c:forEach items="${customerList }" var="customer">
 				<tr>
 					<td>${customer.customerId }</td>
-					<td>${customer.customerName }</td>
+					<td>				
+						<c:url var = "updateUrl" value="/Servlet30_update">
+							<c:param name="CustomerId" value="${customer.customerId }"></c:param>
+						</c:url>
+				
+						<a href="${updateUrl }">
+							${customer.customerName }
+						</a>
+					</td>	
 					<td>${customer.address }</td>
 					<td>${customer.country }</td>
 					<td>${customer.city }</td>

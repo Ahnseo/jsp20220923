@@ -60,16 +60,16 @@ public class Servlet23 extends HttpServlet {
 				PreparedStatement pstmt = con.prepareStatement(sql);
 			) {
 			
-			pstmt.setString(1, keyword);
+			pstmt.setString(1, keyword); // 첫번째 물음표 keyword 를 넣는다.
 			
-			try (ResultSet rs = pstmt.executeQuery(); ) {
+			try (ResultSet rs = pstmt.executeQuery(); ) { //rs 는 pstmt을 가리킨다. pstmt.executeQuery 실행
 				
-				List<Customer> list = new ArrayList<>();
-				while (rs.next()) {
+				List<Customer> list = new ArrayList<>(); // 담아둘 Customer객체를 만들어 놓고,
+				while (rs.next()) { //커서마다 가리킴. 있으면true 없으면false  
 					Customer c = new Customer();
+					c.setCustomerId(rs.getInt("customerId"));
 					c.setCustomerName(rs.getString("customerName"));
 					c.setAddress(rs.getString("address"));
-					c.setCustomerId(rs.getInt("customerId"));
 					c.setCity(rs.getString("city"));
 					c.setCountry(rs.getString("country"));
 					
@@ -84,7 +84,6 @@ public class Servlet23 extends HttpServlet {
 		}
 		
 		String path = "/WEB-INF/view/chap14/view07.jsp";
-		
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 

@@ -3,6 +3,7 @@ package domain.chap14;
 public class Customer {
 	private int customerId;
 	private String customerName;
+	private String ContactName;
 	private String address;
 	private String Country;
 	private String City;
@@ -19,6 +20,12 @@ public class Customer {
 	}
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
+	}
+	public String getContactName() {
+		return ContactName;
+	}
+	public void setContactName(String contactName) {
+		ContactName = contactName;
 	}
 	public String getAddress() {
 		return address;

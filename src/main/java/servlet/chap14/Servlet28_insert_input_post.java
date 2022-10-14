@@ -11,6 +11,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 /*  Post -> Get
  * doGet 
@@ -48,6 +50,7 @@ public class Servlet28_insert_input_post extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//Servlet28 실행 (doGet forward) -> view12(post)-> Servlet28(post실행) -> Servlet23-> view07
 		//request param 수집 가공
 		//con ptmt
 		//set attr
@@ -80,6 +83,11 @@ public class Servlet28_insert_input_post extends HttpServlet {
 			int count = pstmt.executeUpdate();
 			if(count ==1) {
 				System.out.println("저장됨");
+				
+				String message= "새 직원이 등록되었습니다.";
+				HttpSession session = request.getSession(); //세션에 메세지 넣어 출력하기
+				session.setAttribute("message", message);
+				
 				String path = request.getContextPath() + "/Servlet23";
 				response.sendRedirect(path);
 			}
