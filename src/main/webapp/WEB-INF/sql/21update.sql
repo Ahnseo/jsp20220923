@@ -10,6 +10,7 @@ DESC Customers;
 
 -- safe UPDATE disable  , 하지만 실제로 사용하지말것.
 set SQL_SAFE_UPDATES = 0;
+DESC Customers;
 
 -- USA 국가의 고객들의 City를 New York으로 변경
 SELECT * FROM Customers WHERE Country='USA';
@@ -23,4 +24,12 @@ SELECT * FROM Customers WHERE Country ='UK';
 UPDATE Customers
 SET Address ='GangNam'
 WHERE Country ='UK';
+SELECT * FROM Customers WHERE Country ='UK';
+
+UPDATE Customers
+SET CustomerName=?, ContactName=?, Address=?, City=?, Country=? 
+WHERE CustomerId = ? ;
+
+SELECT * FROM Customers WHERE CustomerID = 1
+
 

@@ -1,5 +1,5 @@
 
--- IN : 나열된 값 중에 일치하면, 레코드(row) 가져옴
+-- IN : 나열된 값 중에 일치하면(하나라도 있으면), 레코드(row) 가져옴
 SELECT * FROM Customers WHERE Country ='Mexico' OR Country ='Germany';
 SELECT * FROM Customers WHERE Country In('Mexico', 'Germany');
 
