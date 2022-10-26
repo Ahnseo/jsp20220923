@@ -26,6 +26,10 @@ SELECT CONCAT(e.lastName, ' ', e.firstName ) FROM Employees e JOIN Orders o ON e
 SELECT s.ShipperName FROM Orders o JOIN Shippers s ON o.ShipperID = s.ShipperID WHERE OrderDate ='1996-07-04';
 
 
+SELECT CustomerName FROM w3schools.Customers WHERE CustomerId = 77;
+SELECT BirthDate FROM Employees WHERE EmployeeId = 3;
+
+SELECT BirthDate FROM Employees;
 
 
-
+    

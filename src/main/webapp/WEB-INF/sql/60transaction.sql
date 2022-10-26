@@ -55,6 +55,4 @@ COMMIT;
 -- spring20221017/controller/ex27/sub01     스프링으로 Transaction 
 SELECT * FROM Bank;
 
-
-
 SET autocommit = 1; -- ON
